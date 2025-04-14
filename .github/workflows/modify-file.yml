@@ -1,0 +1,21 @@
+name: Modify File
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  modify-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v4
+
+      - name: Modify file
+        run: |
+          sed -i 's/tag 1/tag 2/g' test.txt
