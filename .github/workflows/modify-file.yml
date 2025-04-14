@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Modify file
         run: |
-          sed -i 's/${{ inputs.replacer-string }}/${{ inputs.target-string }}/g' ${{ inputs.file-path }}
+          sed -i 's/${{ inputs.target-string }}/${{ inputs.replacer-string }}/g' ${{ inputs.file-path }}
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
