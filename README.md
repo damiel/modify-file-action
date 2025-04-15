@@ -1,7 +1,23 @@
 # modify-file-action
 
-This repo will implement a reusable github action that lets you modify a line in a text file from "tag 1" to "tag 2".
+This repo implements a reusable github action workflow that lets you replace a target string with another in a given file.
 
-## Notes
+## Inputs
 
-* This workflow expects you to provide a file-path for the file you want to modify.
+This workflow expects you to provide following inputs:
+
+* inputs.file-path: Path to the file within your repository for the file you want to modify.
+* inputs.target-string: String that you would like to replace.
+* inputs.replacer-string: String that you would like to use instead of the target string.
+
+## Usage Example
+
+```
+jobs:
+  use-reusable-modify-file:
+    uses: damiel/modify-file-action/.github/workflows/modify-file.yml@main
+    with:
+      file-path: demo.txt
+      target-string: ${{ vars.TARGET_STRING }}
+      replacer-string: ${{ vars.REPLACER_STRING }}
+```
